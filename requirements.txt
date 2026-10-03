@@ -1,0 +1,18 @@
+# Travel Reimbursement Approval Agent
+# Tested on Python 3.9.6 and 3.11. Versions in comments are the ones this
+# notebook was built and executed against.
+
+pydantic>=2.5,<3                  # 2.13.5  - structured validation
+pandas>=2.0,<3                    # 2.3.3   - results frame + dashboard data
+matplotlib>=3.7,<4                # 3.9.4   - dashboard and review card
+
+# LangChain is pinned to 0.3.x: AgentExecutor's surface has changed across
+# minor versions before, and this notebook must keep running unattended.
+langchain>=0.3,<0.4               # 0.3.30
+langchain-core>=0.3,<0.4          # 0.3.86
+langchain-anthropic>=0.3,<0.4     # 0.3.22
+anthropic>=0.40                   # 0.125.0 - only used in LIVE mode
+
+ipywidgets>=8.0,<9                # 8.1.9   - interactive review console
+jupyterlab>=4.0                   #         - to run the notebook
+nbformat>=5.9

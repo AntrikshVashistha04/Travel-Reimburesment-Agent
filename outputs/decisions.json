@@ -1,0 +1,127 @@
+[
+  {
+    "claim_id": "CLM-001",
+    "decision": "APPROVE",
+    "approved_amount": 1110.0,
+    "deducted_amount": 0.0,
+    "missing_docs": [],
+    "policy_refs": [
+      "POL-AIR-01",
+      "POL-APR-02",
+      "POL-CAT-01",
+      "POL-PD-01",
+      "POL-PD-02"
+    ],
+    "confidence": 0.95,
+    "explanation": "All 4 line item(s) are eligible under POL-CAT-01, every required receipt is attached, and no amount exceeds its per-diem cap. The $1110.00 total is approvable under POL-APR-02.",
+    "tools_used": [
+      "policy_lookup",
+      "compute_limits",
+      "check_receipt_completeness",
+      "check_timeliness",
+      "detect_conflicts",
+      "check_approval_threshold",
+      "submit_decision"
+    ]
+  },
+  {
+    "claim_id": "CLM-002",
+    "decision": "REJECT",
+    "approved_amount": 0.0,
+    "deducted_amount": 380.0,
+    "missing_docs": [],
+    "policy_refs": [
+      "POL-CAT-02"
+    ],
+    "confidence": 0.95,
+    "explanation": "Every claimed item is ineligible under POL-CAT-02, so nothing is reimbursable and $380.00 is deducted in full. With no reimbursable content there is nothing for a reviewer to weigh, so the claim is rejected rather than escalated.",
+    "tools_used": [
+      "policy_lookup",
+      "compute_limits",
+      "check_receipt_completeness",
+      "check_timeliness",
+      "detect_conflicts",
+      "check_approval_threshold",
+      "submit_decision"
+    ]
+  },
+  {
+    "claim_id": "CLM-003",
+    "decision": "PARTIAL_APPROVE",
+    "approved_amount": 840.0,
+    "deducted_amount": 100.0,
+    "missing_docs": [],
+    "policy_refs": [
+      "POL-AIR-01",
+      "POL-APR-02",
+      "POL-CAT-01",
+      "POL-PD-01",
+      "POL-PD-02"
+    ],
+    "confidence": 0.92,
+    "explanation": "CLM-003-L2 claims $500.00 against a $400.00 cap (2 night(s)), so $100.00 is deducted. The remaining $840.00 is approvable under POL-APR-02.",
+    "tools_used": [
+      "policy_lookup",
+      "compute_limits",
+      "check_receipt_completeness",
+      "check_timeliness",
+      "detect_conflicts",
+      "check_approval_threshold",
+      "submit_decision"
+    ]
+  },
+  {
+    "claim_id": "CLM-004",
+    "decision": "MANUAL_REVIEW",
+    "approved_amount": 0.0,
+    "deducted_amount": 0.0,
+    "missing_docs": [
+      "Itemized receipt for lodging line CLM-004-L2 (\"Hotel, 3 nights\", $600.00)"
+    ],
+    "policy_refs": [
+      "POL-AIR-01",
+      "POL-APR-03",
+      "POL-CAT-01",
+      "POL-PD-02",
+      "POL-RCT-01",
+      "POL-RCT-02"
+    ],
+    "confidence": 0.92,
+    "explanation": "This claim is escalated because of a contradiction between the line item and the trip dates, a total above the agent's authority (POL-APR-03), a missing itemized receipt (POL-RCT-01/02) and a non-economy fare (POL-AIR-01). Reason code(s): DATA_CONFLICT, EXCEEDS_AGENT_AUTHORITY, MISSING_REQUIRED_RECEIPT, POLICY_EXCEPTION_AIRFARE_CLASS. Provisionally $2800.00 would be reimbursable and $200.00 deducted, but no amount is authorised until a reviewer decides.",
+    "tools_used": [
+      "policy_lookup",
+      "compute_limits",
+      "check_receipt_completeness",
+      "check_timeliness",
+      "detect_conflicts",
+      "check_approval_threshold",
+      "submit_decision"
+    ]
+  },
+  {
+    "claim_id": "CLM-005",
+    "decision": "MANUAL_REVIEW",
+    "approved_amount": 0.0,
+    "deducted_amount": 0.0,
+    "missing_docs": [
+      "Itemized receipt for meals line CLM-005-L1 (\"Client dinner for 4 (business development)\", $220.00)"
+    ],
+    "policy_refs": [
+      "POL-CAT-01",
+      "POL-PD-01",
+      "POL-RCT-01",
+      "POL-RCT-02"
+    ],
+    "confidence": 0.72,
+    "explanation": "This claim is escalated because of a missing itemized receipt (POL-RCT-01/02) and a scenario the policy does not cover. Reason code(s): MISSING_REQUIRED_RECEIPT, POLICY_SILENT. Provisionally $75.00 would be reimbursable and $145.00 deducted, but no amount is authorised until a reviewer decides.",
+    "tools_used": [
+      "policy_lookup",
+      "compute_limits",
+      "check_receipt_completeness",
+      "check_timeliness",
+      "detect_conflicts",
+      "check_approval_threshold",
+      "submit_decision"
+    ]
+  }
+]

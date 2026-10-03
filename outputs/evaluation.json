@@ -1,0 +1,80 @@
+[
+  {
+    "test": "Golden outcomes",
+    "result": "PASS",
+    "pass_bar": "5/5 exact",
+    "detail": "5/5 exact"
+  },
+  {
+    "test": "Schema conformance",
+    "result": "PASS",
+    "pass_bar": "5/5 valid, 9 fields",
+    "detail": "5/5 validate, exactly 9 fields"
+  },
+  {
+    "test": "Policy-ref grounding",
+    "result": "PASS",
+    "pass_bar": "0 hallucinated",
+    "detail": "0 hallucinated; 9/12 real rules cited"
+  },
+  {
+    "test": "Engine determinism",
+    "result": "PASS",
+    "pass_bar": "identical x20",
+    "detail": "20 runs -> 1 distinct ledger(s)"
+  },
+  {
+    "test": "Pipeline stability",
+    "result": "PASS",
+    "pass_bar": "identical x3",
+    "detail": "3 full runs -> 1 distinct outcome set(s)"
+  },
+  {
+    "test": "Decision enum coverage",
+    "result": "PASS",
+    "pass_bar": "4/4",
+    "detail": "4/4 exercised: ['APPROVE', 'MANUAL_REVIEW', 'PARTIAL_APPROVE', 'REJECT']"
+  },
+  {
+    "test": "Tool exercise",
+    "result": "PASS",
+    "pass_bar": "7/7 called",
+    "detail": "7/7 tools exercised"
+  },
+  {
+    "test": "Robustness fixture",
+    "result": "PASS",
+    "pass_bar": "escalates, no crash",
+    "detail": "MANUAL_REVIEW with 4 reason code(s): DATA_CONFLICT, LATE_SUBMISSION, MISSING_REQUIRED_RECEIPT, UNKNOWN_CATEGORY"
+  },
+  {
+    "test": "Input validation",
+    "result": "PASS",
+    "pass_bar": "2/2 rejected",
+    "detail": "2/2 malformed inputs rejected at the boundary"
+  },
+  {
+    "test": "Frozen clock",
+    "result": "PASS",
+    "pass_bar": "no wall-clock leak",
+    "detail": "elapsed days computed from claim dates only, not today's date"
+  },
+  {
+    "test": "Fallback explanation",
+    "result": "PASS",
+    "pass_bar": "valid on all claims",
+    "detail": "engine explanation passes the gate's own check on all 6 claims"
+  },
+  {
+    "test": "Draft is tool-derived",
+    "result": "PASS",
+    "pass_bar": "follows doctored tools",
+    "detail": "doctored tool output -> agent drafted APPROVE, engine held PARTIAL_APPROVE, gate flagged disagreement=True"
+  },
+  {
+    "test": "Agent/engine agreement",
+    "result": "PASS",
+    "pass_bar": "5/5 independently",
+    "detail": "5/5 drafts produced and matched the engine independently, with no agent failures"
+  }
+]
